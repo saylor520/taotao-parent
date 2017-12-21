@@ -19,10 +19,10 @@
         </dependency>
     </dependencies>
     <modules>
-        <module>taotao-manager-pojo</module>
-        <module>taotao-manager-mapper</module>
-        <module>taotao-manager-service</module>
-        <module>taotao-manager-web</module>
+        <module>../taotao-manager-pojo</module>
+        <module>../taotao-manager-mapper</module>
+        <module>../taotao-manager-service</module>
+        <module>../taotao-manager-web</module>
     </modules>
     <build>
         <!-- 配置插件 -->

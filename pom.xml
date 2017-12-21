@@ -6,6 +6,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
+  <modules>
+    <module>taotao-manager</module>
+    <module>taotao-common</module>
+  </modules>
+
   <!-- 集中定义依赖版本号 -->
   <properties>
     <junit.version>4.12</junit.version>
