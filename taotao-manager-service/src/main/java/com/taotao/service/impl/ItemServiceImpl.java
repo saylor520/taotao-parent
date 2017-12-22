@@ -3,6 +3,7 @@ package com.taotao.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import com.taotao.pojo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,11 +13,7 @@ import com.github.pagehelper.PageInfo;
 import com.taotao.mapper.TbItemDescMapper;
 import com.taotao.mapper.TbItemMapper;
 import com.taotao.mapper.TbItemParamItemMapper;
-import com.taotao.pojo.TbItem;
-import com.taotao.pojo.TbItemDesc;
-import com.taotao.pojo.TbItemExample;
 import com.taotao.pojo.TbItemExample.Criteria;
-import com.taotao.pojo.TbItemParamItem;
 import com.taotao.service.ItemService;
 
 /**
@@ -48,5 +45,20 @@ public class ItemServiceImpl implements ItemService {
 			return item;
 		}
 		return null;
+	}
+
+	@Override
+	public EUDataGridResult getItemList(int page, int rows) {
+		TbItemExample example = new TbItemExample();
+
+		PageHelper.startPage(page,rows);
+
+		List<TbItem> list = itemMapper.selectByExample(example);
+
+		EUDataGridResult result = new EUDataGridResult();
+		result.setRows(list);
+		PageInfo<TbItem> pageInfo = new PageInfo<TbItem>(list);
+		result.setTotal(pageInfo.getTotal());
+		return result;
 	}
 }
